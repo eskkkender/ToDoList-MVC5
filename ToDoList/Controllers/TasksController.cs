@@ -14,9 +14,23 @@ namespace ToDoList.Controllers
     {
         private TaskDbContext db = new TaskDbContext();
 
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            return View(db.Tasks.ToList());
+         
+            var tasks = from m in db.Tasks select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                tasks = tasks.Where(s => s.Title.Contains(searchString));
+            }
+
+            return View(tasks);
+        }
+
+        [HttpPost]
+        public string Index(FormCollection fc, string searchString)
+        {
+            return "<h3> From [HttpPost]Index: " + searchString + "</h3>";
         }
 
         public ActionResult Details(long? id)
