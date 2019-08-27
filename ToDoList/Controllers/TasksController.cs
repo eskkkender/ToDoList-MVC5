@@ -4,9 +4,9 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using ToDoList.Models;
+using PagedList;
 
 namespace ToDoList.Controllers
 {
@@ -14,24 +14,32 @@ namespace ToDoList.Controllers
     {
         private TaskDbContext db = new TaskDbContext();
 
-        public ActionResult Index(string searchString)
+        public ActionResult Index(string searchString, string currentFilter, int? page)
         {
-         
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
             var tasks = from m in db.Tasks select m;
 
             if (!String.IsNullOrEmpty(searchString))
             {
                 tasks = tasks.Where(s => s.Title.Contains(searchString));
             }
+            int pageSize = 5;
+            int pageNumber = (page ?? 1);
 
-            return View(tasks);
+            return View(tasks.OrderByDescending(s => s.DateTime).ToPagedList(pageNumber, pageSize));
         }
 
-        [HttpPost]
-        public string Index(FormCollection fc, string searchString)
-        {
-            return "<h3> From [HttpPost]Index: " + searchString + "</h3>";
-        }
 
         public ActionResult Details(long? id)
         {

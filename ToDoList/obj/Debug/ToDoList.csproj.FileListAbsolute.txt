@@ -89,3 +89,7 @@ D:\NET\ToDoList\ToDoList\obj\Debug\ToDoList.Migrations.InitialCreate.resources
 D:\NET\ToDoList\ToDoList\obj\Debug\ToDoList.csproj.GenerateResource.cache
 D:\NET\ToDoList\ToDoList\obj\Debug\ToDoList.Migrations.Done.resources
 D:\NET\ToDoList\ToDoList\obj\Debug\ToDoList.Migrations.Status.resources
+D:\NET\ToDoList\ToDoList\bin\PagedList.dll
+D:\NET\ToDoList\ToDoList\bin\PagedList.Mvc.dll
+D:\NET\ToDoList\ToDoList\bin\PagedList.xml
+D:\NET\ToDoList\ToDoList\bin\PagedList.Mvc.xml

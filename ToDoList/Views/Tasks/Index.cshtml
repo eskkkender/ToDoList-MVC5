@@ -1,5 +1,5 @@
-﻿@model IEnumerable<ToDoList.Models.Task>
-
+﻿@model PagedList.IPagedList<ToDoList.Models.Task>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "ToDo";
 }
@@ -8,18 +8,18 @@
 
 <p>
     @Html.ActionLink("Добавить задачу", "Create")
-    @using (Html.BeginForm("Index","Tasks",FormMethod.Get))
+    @using (Html.BeginForm("Index", "Tasks", FormMethod.Get))
     {
-        <p>
-            Title: @Html.TextBox("SearchString") <br />
-            <input type="submit" value="Поиск" />
-        </p>
-    }
-</p>
+    <p>
+        Задача: @Html.TextBox("SearchString")
+        <input type="submit" value="Поиск" class="btn btn-primary" />
+    </p>
+}
+    </p>
     <table class="table">
         <tr>
             <th>
-               Статус
+                Статус
             </th>
             <th>
                 Задача
@@ -57,3 +57,7 @@
         }
 
     </table>
+    <br />
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+    @Html.PagedListPager(Model, page => Url.Action("Index",
+        new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
