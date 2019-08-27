@@ -85,3 +85,7 @@ D:\NET\ToDoList\ToDoList\bin\EntityFramework.dll
 D:\NET\ToDoList\ToDoList\bin\EntityFramework.SqlServer.dll
 D:\NET\ToDoList\ToDoList\bin\EntityFramework.xml
 D:\NET\ToDoList\ToDoList\bin\EntityFramework.SqlServer.xml
+D:\NET\ToDoList\ToDoList\obj\Debug\ToDoList.Migrations.InitialCreate.resources
+D:\NET\ToDoList\ToDoList\obj\Debug\ToDoList.csproj.GenerateResource.cache
+D:\NET\ToDoList\ToDoList\obj\Debug\ToDoList.Migrations.Done.resources
+D:\NET\ToDoList\ToDoList\obj\Debug\ToDoList.Migrations.Status.resources

@@ -8,16 +8,19 @@
 
 <p>
     @Html.ActionLink("Добавить задачу", "Create")
-   @using (Html.BeginForm("Index","Tasks",FormMethod.Get))
+    @using (Html.BeginForm("Index","Tasks",FormMethod.Get))
     {
-    <p>
-        Title: @Html.TextBox("SearchString") <br />
-        <input type="submit" value="Поиск" />
-    </p>
-}
-    </p>
+        <p>
+            Title: @Html.TextBox("SearchString") <br />
+            <input type="submit" value="Поиск" />
+        </p>
+    }
+</p>
     <table class="table">
         <tr>
+            <th>
+               Статус
+            </th>
             <th>
                 Задача
             </th>
@@ -33,6 +36,9 @@
         @foreach (var item in Model)
         {
             <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Title)
                 </td>

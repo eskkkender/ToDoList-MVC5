@@ -12,14 +12,22 @@ namespace ToDoList.Models
         /// ИД задачи
         /// </summary>
         public long Id { get; set; }
+
+        /// <summary>
+        /// Сделано
+        /// </summary>
+        public bool Status { get; set; }
+
         /// <summary>
         /// Название задачи
         /// </summary>
         public string Title { get; set; }
+
         /// <summary>
         /// Описание задачи
         /// </summary>
         public string Description { get; set; }
+
         /// <summary>
         /// Дата создание задачи
         /// </summary>

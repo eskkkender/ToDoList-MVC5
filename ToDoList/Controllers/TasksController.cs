@@ -56,7 +56,7 @@ namespace ToDoList.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Title,Description,DateTime")] Task task)
+        public ActionResult Create([Bind(Include = "Id,Status,Title,Description,DateTime")] Task task)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace ToDoList.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Description,DateTime")] Task task)
+        public ActionResult Edit([Bind(Include = "Id,Status,Title,Description,DateTime")] Task task)
         {
             if (ModelState.IsValid)
             {
